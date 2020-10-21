@@ -1,3 +1,20 @@
+//Navigation hamburger click function:
+//Use get elements by class...
+const hamburger = document.querySelector(".menu-toggle")
+
+hamburger.addEventListener("click", function(){
+  // $('nav').toggleClass('active')
+  console.log("Random Comment");
+})
+
+// target.addEventListener(type, listener [, options]);
+
+// $(document).ready(function(){
+//   $('.menu-toggle').click(function(){
+//       $('nav').toggleClass('active')
+//   })
+// })
+
 // Set the date we're counting down to
 var countDownDate = new Date("Jul 24, 2021 15:37:25").getTime();
 
