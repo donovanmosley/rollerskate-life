@@ -1,11 +1,24 @@
 //Navigation hamburger click function:
 //Use get elements by class...
-const hamburger = document.querySelector(".menu-toggle")
+// const hamburger = document.querySelector(".menu-toggle")
 
-hamburger.addEventListener("click", function(){
-  // $('nav').toggleClass('active')
-  console.log("Random Comment");
-})
+// hamburger.addEventListener("click", function(){
+//   // $('nav').toggleClass('active')
+//   console.log("Random Comment");
+// })
+
+const menuToggle = document.querySelector('.menu-toggle');
+
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+
+            if (nav.className != 'active') {nav.className = 'active';}
+
+            else {nav.className = '';}
+
+        });
+
 
 // target.addEventListener(type, listener [, options]);
 
