@@ -37,9 +37,9 @@ fetch(proxyUrl + targetUrl)
 
 
 
-fetch('https://api.yelp.com/v3/businesses/search')
-    .then(res => res.json())
-    .then(data => console.log(data))
+// fetch('https://api.yelp.com/v3/businesses/search')
+//     .then(res => res.json())
+//     .then(data => console.log(data))
 
 
 //Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
