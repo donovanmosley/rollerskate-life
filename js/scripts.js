@@ -11,29 +11,44 @@ const menuToggle = document.querySelector('.menu-toggle');
 
         });
 
+//Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
+//Maintenance Guide
+fetch('manual.json')
+    .then(res => res.json())
+    .then(data => appendData(data))
+    .catch(error => console.error("Something went wrong with retreiving the manual data", error));
+
+function appendData(data) {
+  var mainContainer = document.getElementById("inlineManual");
+  for (var i = 0; i < data.length; i++) {
+    var div = document.createElement("div");
+    div.innerHTML = 'Topic: ' + data[i].topic + ' - ' + data[i].description;
+    mainContainer.appendChild(div);
+  }
+}
 
 
 //Using Fetch to call the Yelp API:
 // cors solution #1:
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer tXRkZsFn77Nq3R-Ucvl-G6Soe3J4b2rFX5rdS9GRYmZ4Hzas2-LjABrAx397enuHY-csf_5xC9cFWLiDxFMK1KlkYzgwXhP4qbB4sJe3C3brz7VURUe5d3m70HiRX3Yx");
-myHeaders.append("Cookie", "__cfduid=db290300ecfe95ec1fe3bc92c388c3c991586618117");
-myHeaders.append("Access-Control-Allow-Origin", "*");
+// var myHeaders = new Headers();
+// myHeaders.append("Authorization", "Bearer tXRkZsFn77Nq3R-Ucvl-G6Soe3J4b2rFX5rdS9GRYmZ4Hzas2-LjABrAx397enuHY-csf_5xC9cFWLiDxFMK1KlkYzgwXhP4qbB4sJe3C3brz7VURUe5d3m70HiRX3Yx");
+// myHeaders.append("Cookie", "__cfduid=db290300ecfe95ec1fe3bc92c388c3c991586618117");
+// myHeaders.append("Access-Control-Allow-Origin", "*");
 
-var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-var targetUrl = 'https://api.yelp.com/v3/businesses/search'
+// var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+// var targetUrl = 'https://api.yelp.com/v3/businesses/search'
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
+// var requestOptions = {
+//   method: 'GET',
+//   headers: myHeaders,
+//   redirect: 'follow'
+// };
 
 
-fetch(proxyUrl + targetUrl)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+// fetch(proxyUrl + targetUrl)
+//   .then(response => response.text())
+//   .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
 
 
 
@@ -42,7 +57,6 @@ fetch(proxyUrl + targetUrl)
 //     .then(data => console.log(data))
 
 
-//Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
 
 
 
