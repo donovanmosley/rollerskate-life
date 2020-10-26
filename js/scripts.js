@@ -12,7 +12,7 @@ const menuToggle = document.querySelector('.menu-toggle');
         });
 
 //Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
-//Maintenance Guide
+//Maintenance Guide:
 fetch('manual.json')
     .then(res => res.json())
     .then(data => appendData(data))
@@ -25,7 +25,17 @@ function appendData(data) {
     div.innerHTML = 'Topic: ' + data[i].topic + ' - ' + data[i].description;
     mainContainer.appendChild(div);
   }
+
+  var select = document.getElementById('cmbitems');
+  var input = document.getElementById('txtprice');
+    select.onchange = function() {
+    input.value = select.value;
 }
+
+}
+
+
+
 
 
 //Using Fetch to call the Yelp API:

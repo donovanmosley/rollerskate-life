@@ -5,6 +5,7 @@
         <title>InlineskateLife</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css?v=1.0">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/'-awesome/4.7.0/css/font-awesome.min.css"> -->
     </head>
 
     <body>
@@ -27,9 +28,13 @@
             <h2>Hello, world!</h2>
         </div>
 
-        <div>
-            <select id="people"></select>
-        </div>
+        <select name="cmbitems" id="cmbitems">
+            <option value="price1">blue</option>
+            <option value="price2">green</option>
+            <option value="price3">red</option>
+        </select>
+        
+        <input type="text" name="txtprice" id="txtprice" onClick="checkPrice()">
 
         <div>
             <p id="demo2"></p>
