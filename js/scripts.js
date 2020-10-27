@@ -20,7 +20,7 @@ function appendData(data) {
   for (var i = 0; i <data.length; i++) {
     var opt = document.createElement('option');
     opt.appendChild( document.createTextNode(data[i].topic));
-    opt.value = data[i].description;
+    opt.value = data[i].description + data[i].image;
     sel.appendChild(opt);
   }
 }

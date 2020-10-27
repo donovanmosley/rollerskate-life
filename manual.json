@@ -4,7 +4,8 @@
         "firstName": "John",
         "lastName": "Doe",
         "topic":"Liners", 
-        "description":"Liners are breathable, comfortable  and are matched and designed for various appropriate skate and skill levels.  They can also be removed from the skate to be washed and air-dried.",
+        "image": "./img/liners.jpg",
+        "description":"Liners protect your feet and ankles while absorbing moisture to help keep your feet dry.  Liners are breathable, comfortable and are matched and designed for various appropriate skate and skill levels.  They can also be removed from the skate to be washed and air-dried.",
         "stepOne": "Set the washing machine to 30 C/85 F. Do not use stron deturgent, softeners, or solvents",
         "stepTwo": "Air-dry liners. Be careful to keep away from any type of heat source.  Do not tumble dry."
     },
@@ -13,6 +14,7 @@
         "firstName": "Mary",
         "lastName": "Peterson",
         "topic":"Bearings", 
+        "image": "./img/bearings.jpg",
         "description":"For longer life your bearings should be properly cleaned and lubricated",
         "stepOne": "Remove all 4 wheels with Allen Key",
         "stepTwo": "Wipe off the dirt and debris from the wheels and bearings with a rag.",
@@ -23,6 +25,7 @@
         "firstName": "George",
         "lastName": "Hansen",
         "topic":"Brake Removal", 
+        "image": "./img/brakes.jpg",
         "description":"You can take your inline skates into a shop and get professionals to change your wheels, brakes, and bearings. Or, if you’re feeling handy, you can grab an Allen key and tune your inline skates yourself. Today, we’re going to talk about changing out your inline skate brakes. The first step is to find out what type of brakes you have: a 4D brake, a standard brake, or a brake with pin. Depending on whether you have Rollerblades or not, you can take a look online for the brake designed for your skate. Once you have your new brakes in hand, take your Allen key and remove all of the screws that hold your brake in place. Take your new brakes and replace them on each skate, tightening the brake.",
         "stepOne":"Remove the longer axie bolt with Allen key and replace with the extra standard length bolt that comes with this the kit"
     }
