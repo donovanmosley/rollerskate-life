@@ -1,17 +1,14 @@
 //Navigation hamburger click function:
 const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
 
-        const nav = document.querySelector('nav');
+menuToggle.addEventListener('click', () => {
+  if (nav.className != 'active') {nav.className = 'active';}
+  else {nav.className = '';}
+});
 
-        menuToggle.addEventListener('click', () => {
-
-            if (nav.className != 'active') {nav.className = 'active';}
-
-            else {nav.className = '';}
-
-        });
-
-// 
+// Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
+// Maintenance Guide Section:
 
 fetch('manual.json')
   .then(res => res.json())
@@ -37,33 +34,6 @@ function selectValue(sel) {
 
 
 
-
-
-
-//  //Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
-// //Maintenance Guide:
-// fetch('manual.json')
-//     .then(res => res.json())
-//     .then(data => appendData(data))
-//     .catch(error => console.error("Something went wrong with retreiving the manual data", error));
-
-//     function appendData(data){​​​​​
-//       var sel = document.getElementById('cmbitems');
-//       for (var i = 0; i < data.length; i++) {​​​​​
-//         var opt = document.createElement('option');
-//         // create text node to add to option element (opt)
-//         opt.appendChild( document.createTextNode(data[i].topic));
-//         // set value property of opt
-//         opt.value = data[i].description; 
-//         // add opt to end of select box (sel)
-//         sel.appendChild(opt);
-//     }​​​​​
-
-//     function selectValue(sel){
-//       var input = document.getElementById('txtprice');
-//       input.value = sel.value;
-//   }​​ ​​​
-// ​​​}
 
 
 
