@@ -11,28 +11,62 @@ const menuToggle = document.querySelector('.menu-toggle');
 
         });
 
-//Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
-//Maintenance Guide:
+// 
+
 fetch('manual.json')
-    .then(res => res.json())
-    .then(data => appendData(data))
-    .catch(error => console.error("Something went wrong with retreiving the manual data", error));
+  .then(res => res.json())
+  .then(data => appendData(data))
+  .catch(error => console.error("Something went wrong with retreiving the manual data", error));
 
 function appendData(data) {
-  var mainContainer = document.getElementById("inlineManual");
-  for (var i = 0; i < data.length; i++) {
-    var div = document.createElement("div");
-    div.innerHTML = 'Topic: ' + data[i].topic + ' - ' + data[i].description;
-    mainContainer.appendChild(div);
+  var sel = document.getElementById("cmbitems");
+  for (var i = 0; i <data.length; i++) {
+    var opt = document.createElement('option');
+    opt.appendChild( document.createTextNode(data[i].topic));
+    opt.value = data[i].description;
+    sel.appendChild(opt);
   }
+}
 
-  var select = document.getElementById('cmbitems');
+function selectValue(sel) {
   var input = document.getElementById('txtprice');
-    select.onchange = function() {
-    input.value = select.value;
+  input.value = sel.value;
 }
 
-}
+
+
+
+
+
+
+
+//  //Read and parse an external file (such as JSON or CSV) into your application and display some data from that in your app
+// //Maintenance Guide:
+// fetch('manual.json')
+//     .then(res => res.json())
+//     .then(data => appendData(data))
+//     .catch(error => console.error("Something went wrong with retreiving the manual data", error));
+
+//     function appendData(data){​​​​​
+//       var sel = document.getElementById('cmbitems');
+//       for (var i = 0; i < data.length; i++) {​​​​​
+//         var opt = document.createElement('option');
+//         // create text node to add to option element (opt)
+//         opt.appendChild( document.createTextNode(data[i].topic));
+//         // set value property of opt
+//         opt.value = data[i].description; 
+//         // add opt to end of select box (sel)
+//         sel.appendChild(opt);
+//     }​​​​​
+
+//     function selectValue(sel){
+//       var input = document.getElementById('txtprice');
+//       input.value = sel.value;
+//   }​​ ​​​
+// ​​​}
+
+
+
 
 
 

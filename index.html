@@ -28,10 +28,7 @@
             <h2>Hello, world!</h2>
         </div>
 
-        <select name="cmbitems" id="cmbitems">
-            <option value="price1">blue</option>
-            <option value="price2">green</option>
-            <option value="price3">red</option>
+        <select name="cmbitems" onchange="selectValue(this)" id="cmbitems" id="txtprice">
         </select>
         
         <input type="text" name="txtprice" id="txtprice" onClick="checkPrice()">
@@ -40,10 +37,10 @@
             <p id="demo2"></p>
         </div>
 
-        <div>
+        <!-- <div>
             <h2>Technical Manual:</h2>
             <div id="inlineManual"></div>
-        </div>
+        </div> -->
 
         <script type="text/javascript" src="./js/scripts.js"></script>
     </body>
