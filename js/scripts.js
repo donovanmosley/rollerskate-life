@@ -1,3 +1,6 @@
+src="https://unpkg.com/axios/dist/axios.min.js"
+
+
 //Navigation hamburger click function:
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
@@ -35,15 +38,32 @@ function selectValue(sel) {
   image.setAttribute("src", selectData.imagePath)
 }
 
+//Using Fetch to call the Yelp API:
+const axios = require("axios")
+let API_KEY = "tXRkZsFn77Nq3R-Ucvl-G6Soe3J4b2rFX5rdS9GRYmZ4Hzas2-LjABrAx397enuHY-csf_5xC9cFWLiDxFMK1KlkYzgwXhP4qbB4sJe3C3brz7VURUe5d3m70HiRX3Yx"
 
+// REST
+let yelpREST = axios.create({
+  baseURL: "https://api.yelp.com/v3/",
+  headers: {
+    Authorization: `Bearer ${API_KEY}`,
+    "Content-type": "application/json",
+  },
+})
 
-
-
-
-
-
-
-
+// Using the yelpREST helper we defined earlier
+yelpREST("/businesses/search", {
+  params: {
+    location: "kyoto",
+    term: "coffee",
+    limit: 10,
+  },
+}).then(({ data }) => {
+  let { businesses } = data
+  businesses.forEach((b) => {
+    console.log("Name: ", b.name)
+  })
+})
 
 
 
