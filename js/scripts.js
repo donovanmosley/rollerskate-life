@@ -17,17 +17,22 @@ fetch('manual.json')
 
 function appendData(data) {
   var sel = document.getElementById("cmbitems");
+
   for (var i = 0; i <data.length; i++) {
     var opt = document.createElement('option');
     opt.appendChild( document.createTextNode(data[i].topic));
-    opt.value = data[i].description + data[i].image;
+    opt.value = '{"description":"' + data[i].description + '", "imagePath":"' + data[i].image + '"}';
     sel.appendChild(opt);
   }
 }
 
 function selectValue(sel) {
+  var selectData = JSON.parse(sel.value);
+  console.log(selectData);
   var input = document.getElementById('txtprice');
-  input.value = sel.value;
+  input.value = selectData.description;
+  var image = document.getElementById('imageId');
+  image.setAttribute("src", selectData.imagePath)
 }
 
 
