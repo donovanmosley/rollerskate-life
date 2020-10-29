@@ -1,4 +1,3 @@
-src="https://unpkg.com/axios/dist/axios.min.js"
 
 
 //Navigation hamburger click function:
@@ -38,7 +37,10 @@ function selectValue(sel) {
   image.setAttribute("src", selectData.imagePath)
 }
 
-//Using Fetch to call the Yelp API:
+
+
+//   Using Fetch to call the Yelp API:
+
 const axios = require("axios")
 let API_KEY = "tXRkZsFn77Nq3R-Ucvl-G6Soe3J4b2rFX5rdS9GRYmZ4Hzas2-LjABrAx397enuHY-csf_5xC9cFWLiDxFMK1KlkYzgwXhP4qbB4sJe3C3brz7VURUe5d3m70HiRX3Yx"
 
@@ -51,7 +53,7 @@ let yelpREST = axios.create({
   },
 })
 
-// Using the yelpREST helper we defined earlier
+// Using the yelpREST helper defined above
 yelpREST("/businesses/search", {
   params: {
     location: "kyoto",
