@@ -1,5 +1,4 @@
 
-
 //Navigation hamburger click function:
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
@@ -39,63 +38,63 @@ function selectValue(sel) {
 
 
 
-//   Using Fetch to call the Yelp API:
+//   1st option for using Axios:
+//   I get an an Uncaught ReferenceError: axios is not defined
 
-const axios = require("axios")
-let API_KEY = "tXRkZsFn77Nq3R-Ucvl-G6Soe3J4b2rFX5rdS9GRYmZ4Hzas2-LjABrAx397enuHY-csf_5xC9cFWLiDxFMK1KlkYzgwXhP4qbB4sJe3C3brz7VURUe5d3m70HiRX3Yx"
+var API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
 
-// REST
-let yelpREST = axios.create({
-  baseURL: "https://api.yelp.com/v3/",
+axios({
+  method:'get',
+  url:'https://api.yelp.com/v3/businesses/search',
   headers: {
     Authorization: `Bearer ${API_KEY}`,
-    "Content-type": "application/json",
+    "Content-type": "application/json"
   },
-})
-
-// Using the yelpREST helper defined above
-yelpREST("/businesses/search", {
+  responseType:'application/json',
   params: {
     location: "kyoto",
     term: "coffee",
     limit: 10,
   },
-}).then(({ data }) => {
-  let { businesses } = data
-  businesses.forEach((b) => {
+})
+.then(function (data) {
+  data.forEach((b) => {
     console.log("Name: ", b.name)
   })
-})
+});
+
+
+//   2nd option: Using axios to call the Yelp API
+//   I received an Uncaught ReferenceError: require is not defined 
+
+// axios = require('axios').default;
+// let API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
+
+// // REST
+// let yelpREST = axios.create({
+//   baseURL: "https://api.yelp.com/v3/",
+//   headers: {
+//     Authorization: `Bearer ${API_KEY}`,
+//     "Content-type": "application/json",
+//   },
+// })
+
+// // Using the yelpREST helper defined above
+// yelpREST("/businesses/search", {
+//   params: {
+//     location: "kyoto",
+//     term: "coffee",
+//     limit: 10,
+//   },
+// }).then(({ data }) => {
+//   let { businesses } = data
+//   businesses.forEach((b) => {
+//     console.log("Name: ", b.name)
+//   })
+// })
 
 
 
-//Using Fetch to call the Yelp API:
-// cors solution #1:
-// var myHeaders = new Headers();
-// myHeaders.append("Authorization", "Bearer tXRkZsFn77Nq3R-Ucvl-G6Soe3J4b2rFX5rdS9GRYmZ4Hzas2-LjABrAx397enuHY-csf_5xC9cFWLiDxFMK1KlkYzgwXhP4qbB4sJe3C3brz7VURUe5d3m70HiRX3Yx");
-// myHeaders.append("Cookie", "__cfduid=db290300ecfe95ec1fe3bc92c388c3c991586618117");
-// myHeaders.append("Access-Control-Allow-Origin", "*");
-
-// var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-// var targetUrl = 'https://api.yelp.com/v3/businesses/search'
-
-// var requestOptions = {
-//   method: 'GET',
-//   headers: myHeaders,
-//   redirect: 'follow'
-// };
-
-
-// fetch(proxyUrl + targetUrl)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-
-
-
-// fetch('https://api.yelp.com/v3/businesses/search')
-//     .then(res => res.json())
-//     .then(data => console.log(data))
 
 
 
