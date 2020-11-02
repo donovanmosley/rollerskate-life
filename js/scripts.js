@@ -37,9 +37,7 @@ function selectValue(sel) {
   image.setAttribute("src", selectData.imagePath)
 }
 
-// Ajax request for getting yelp api:  Here I get a too many requests error:
-
-
+// Ajax request for getting yelp api:
 
 $(window).on("load", function() {
   var API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
@@ -76,20 +74,6 @@ $(window).on("load", function() {
   })
 })
 
-
-// //  Hello World App:
-
-// const express = require('express')
-// const app = express()
-// const port = 3000
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
-
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`)
-// })
 
 // I moved this from main.js:
 
