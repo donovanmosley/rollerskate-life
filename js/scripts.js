@@ -17,6 +17,7 @@ fetch('manual.json')
   .catch(error => console.error("Something went wrong with retreiving the manual data", error));
 
 function appendData(data) {
+  
   var sel = document.getElementById("cmbitems");
 
   for (var i = 0; i <data.length; i++) {
@@ -36,32 +37,117 @@ function selectValue(sel) {
   image.setAttribute("src", selectData.imagePath)
 }
 
+// Ajax request for getting yelp api:  Here I get a too many requests error:
+
+$(window).on("load", function() {
+  var API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
+  var web = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="
+  
+    var y = "coffee"
+    var x = "louisville"
+    var z = 10
+
+
+    $.ajax({
+      type: "GET",
+      url: web + y + "&location=" + x + "&radius=" + z,
+      headers: {
+        "Authorization": `Bearer ${API_KEY}`,
+        "expires_in": 15551999,
+        "token_type": "Bearer"
+      },
+      success: function(data) {
+          console.log(data);
+        }
+      })
+    })
+
+
+
+// //  Hello World App:
+
+// const express = require('express')
+// const app = express()
+// const port = 3000
+
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
+
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`)
+// })
+
+// I moved this from main.js:
+
+// 'use strict';
+ 
+// // const yelp = require(['yelp-fusion']);
+// // const client = yelp.client('NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx');
+ 
+// // client.search({
+// //   term: 'Four Barrel Coffee',
+// //   location: 'san francisco, ca',
+// // }).then(response => {
+// //   console.log(response.jsonBody.businesses[0].name);
+// // }).catch(e => {
+// //   console.log(e);
+// // });
+// require(['axios'], function (axiosModule) {
+//   const axios = axiosModule;
+//   let API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
+
+//   // REST
+//   let yelpREST = axios.create({
+//     baseURL: "https://api.yelp.com/v3/",
+//     headers: {
+//       Authorization: `Bearer ${API_KEY}`,
+//       "Content-type": "application/json",
+//     },
+//   });
+
+//   // Using the yelpREST helper defined above
+//   yelpREST("/businesses/search", {
+//     params: {
+//       location: "kyoto",
+//       term: "coffee",
+//       limit: 10,
+//     },
+//   }).then(({ data }) => {
+//     let { businesses } = data
+//     businesses.forEach((b) => {
+//       console.log("Name: ", b.name)
+//     })
+//   });
+// });
+
+
 
 
 //   1st option for using Axios:
 //   I get an an Uncaught ReferenceError: axios is not defined
 
-var API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
+// var API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
 
-axios({
-  method:'get',
-  url:'https://api.yelp.com/v3/businesses/search',
-  headers: {
-    Authorization: `Bearer ${API_KEY}`,
-    "Content-type": "application/json"
-  },
-  responseType:'application/json',
-  params: {
-    location: "kyoto",
-    term: "coffee",
-    limit: 10,
-  },
-})
-.then(function (data) {
-  data.forEach((b) => {
-    console.log("Name: ", b.name)
-  })
-});
+// axios({
+//   method:'get',
+//   url:'https://api.yelp.com/v3/businesses/search',
+//   headers: {
+//     Authorization: `Bearer ${API_KEY}`,
+//     "Content-type": "application/json"
+//   },
+//   responseType:'application/json',
+//   params: {
+//     location: "kyoto",
+//     term: "coffee",
+//     limit: 10,
+//   },
+// })
+// .then(function (data) {
+//   data.forEach((b) => {
+//     console.log("Name: ", b.name)
+//   })
+// });
 
 
 //   2nd option: Using axios to call the Yelp API
@@ -93,6 +179,28 @@ axios({
 //   })
 // })
 
+
+//  Option 3:
+//  Here I get the erro that require is not defined...
+
+// let yelpAPI = require('yelp-api')
+// let API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
+// let yelp = new yelpAPI(apiKey)
+
+
+// // Set any parameters, if applicable (see API documentation for allowed params)
+// let params = [{ location: '20008' }];
+ 
+// // Call the endpoint
+// yelp.query('businesses/search', params)
+// .then(data => {
+//   // Success
+//   console.log(data);
+// })
+// .catch(err => {
+//   // Failure
+//   console.log(err);
+// });
 
 
 
