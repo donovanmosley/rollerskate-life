@@ -39,13 +39,26 @@ function selectValue(sel) {
 
 // Ajax request for getting yelp api:  Here I get a too many requests error:
 
+
+
 $(window).on("load", function() {
   var API_KEY = "NvnKjvhsKILrfEgu-GyzIu83rkw5GlAz-b5mQM3PQBpUAk6F9SNGEOjkEUJ456d91ho6zi4gO9IdK2wAlzsYjIFItK1HG8y3TPoTVXj4iEAc_VMJIrHYF-0Sw-KbX3Yx"
   var web = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="
   
-    var y = "coffee"
-    var x = "louisville"
-    var z = 10
+  function milesToMeters(miles) {
+    return miles * 1609
+  }
+
+  $('#zip').focus(function() {
+    $('#zip').val("")
+  })
+
+  $('#submit').on('click', function(event) {
+    event.preventDefault();  
+    var y = "skate"
+    var x = $('#zip').val()
+    var q = $('#radius option:selected').val()
+    var z = milesToMeters(q)
 
 
     $.ajax({
@@ -58,10 +71,10 @@ $(window).on("load", function() {
       },
       success: function(data) {
           console.log(data);
-        }
-      })
+      }
     })
-
+  })
+})
 
 
 // //  Hello World App:
@@ -236,4 +249,4 @@ $(window).on("load", function() {
 //     clearInterval(x);
 //     document.getElementById("demo").innerHTML = "EXPIRED";
 //   }
-// }, 1000);
+// }, 1000):

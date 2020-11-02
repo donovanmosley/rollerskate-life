@@ -51,6 +51,23 @@
             <h2>Yelp API:</h2>
         </div>
 
+        <div class="animated fadeInLeft main-container">
+            <form class="input" action="#" method="post">
+              <div id="input-form">
+                <input type="text" name="zip" value="ZIP Code" id="zip" maxlength="5" autocomplete="off">
+                <br>
+                <select class="radius" id="radius">
+                    <option value="default" disabled selected>Radius to search</option>
+                      <option value="5">5 miles</option>
+                      <option value="10">10 miles</option>
+                      <option value="15">15 miles</option>
+                      <option value="20">20 miles</option>
+            </select>
+                <button id="submit" type="button" name="button">Submit</button>
+              </div>
+            </form>
+      
+
         <div>
             <p id="demo2"></p>
         </div>
