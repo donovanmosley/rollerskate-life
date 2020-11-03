@@ -84,10 +84,28 @@ header nav ul li a.active {
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background-color: #f8f8f8;s
   resize: none;
   overflow: hidden;
 }
+
+/* Styling for the Skate Park locator */
+
+#found {
+  text-align: center;
+}
+
+#results {
+  display: flex;
+  flex-flow: row wrap;
+  height: 250px;
+  justify-content: space-evenly;
+  }
+  
+.child {
+  width: 40%;
+  height: 40%;
+  }
 
 
 /* Media query section */
