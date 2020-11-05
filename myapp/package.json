@@ -1,0 +1,22 @@
+{
+  "name": "rollerskate-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donovanmosley/rollerskate-life.git"
+  },
+  "author": "Donovan Mosley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donovanmosley/rollerskate-life/issues"
+  },
+  "homepage": "https://github.com/donovanmosley/rollerskate-life#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

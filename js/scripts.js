@@ -39,14 +39,15 @@ function selectValue(sel) {
 
 
 // Write html form data to a txt file:
-function WriteToFile(passForm)
-{
-var fso = new ActiveXObject("Scripting.FileSystemObject");
-var s = fso.CreateTextFile("./fileSaver.txt", true);
-s.WriteLine("HI");
-console.log(s);
-s.Close();
-}
+// function WriteToFile(passForm)
+// {
+// var fso = new ActiveXObject("Scripting.FileSystemObject");
+// var s = fso.CreateTextFile("./fileSaver.txt", true);
+// s.WriteLine("HI");
+// console.log(s);
+// s.Close();
+// }
+
 
 
 // Ajax request for getting yelp api:
