@@ -37,6 +37,18 @@ function selectValue(sel) {
   image.setAttribute("src", selectData.imagePath)
 }
 
+
+// Write html form data to a txt file:
+function WriteToFile(passForm)
+{
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+var s = fso.CreateTextFile("./fileSaver.txt", true);
+s.WriteLine("HI");
+console.log(s);
+s.Close();
+}
+
+
 // Ajax request for getting yelp api:
 
 $(window).on("load", function() {
@@ -89,7 +101,7 @@ $(window).on("load", function() {
                 var state = item.location.state;
                 var zipcode = item.location.zip_code;
                 // Append our result into our page
-                $('#results').append('<div id="' + id + '" style="margin-top:20px;margin-bottom:20px;margin-left:40px;margin-right:40px;"><img src="' + image + '" style="width:200px;height:150px;"><br>Name: <b>' + name + '</b> <br> Address: ' + address + ' ' + city + ', ' + state + ' ' + zipcode + '<br>Phone: ' + phone + '<br>Rating: ' + rating + ' with ' + reviewcount + ' reviews.</div>');
+                $('#results').append('<div id="' + id + '" style="margin-top:20px;margin-bottom:20px;margin-left:40px;margin-right:40px;"><img src="' + image + '" style="width:250px;height:200px;"><br>Name: <b>' + name + '</b> <br> Address: ' + address + ' ' + city + ', ' + state + ' ' + zipcode + '<br>Phone: ' + phone + '<br>Rating: ' + rating + ' with ' + reviewcount + ' reviews.</div>');
           });
         } else {
             // If our results are 0; no businesses were returned by the JSON therefor we display on the page no results were found
